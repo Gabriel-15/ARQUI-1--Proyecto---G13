@@ -3,6 +3,7 @@ int rapido = 255;
 int valor;
 int vel=255;
 String test="";
+int temporal=255;
 void setup() {
 pinMode(13,OUTPUT);
 pinMode(12,OUTPUT);
@@ -27,20 +28,21 @@ void loop() {
  }
 
  if(test.length()>0){
+  
     if (test=="1"){
-    adelante(vel);
+    adelante(temporal);
   }else if (test=="2"){
-    atras(vel);
+    atras(temporal);
   }else if (test=="3"){
-    izq(vel);
+    izq(temporal);
   }else if (test=="4"){
-    der(vel);
+    der(temporal);
   }else if (test=="5"){
     parar();
   }else if (test=="6"){
-    vel=lento;
+    temporal=lento;
   }else if (test=="7"){
-    vel=rapido;
+    temporal=rapido;
   }
   /*adelante(rapido);
 delay(2000);
