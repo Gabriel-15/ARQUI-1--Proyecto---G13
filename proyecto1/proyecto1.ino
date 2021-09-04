@@ -28,19 +28,19 @@ void loop() {
 
  if(test.length()>0){
     if (test=="1"){
-    adelante(rapido);
+    adelante(vel);
   }else if (test=="2"){
-    atras(lento);
+    atras(vel);
   }else if (test=="3"){
-    izq(rapido);
+    izq(vel);
   }else if (test=="4"){
-    der(lento);
+    der(vel);
   }else if (test=="5"){
     parar();
   }else if (test=="6"){
-    
+    vel=lento;
   }else if (test=="7"){
-    
+    vel=rapido;
   }
   /*adelante(rapido);
 delay(2000);
