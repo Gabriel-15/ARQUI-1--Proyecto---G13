@@ -4,6 +4,11 @@ int valor;
 int vel=255;
 String test="";
 int temporal=255;
+
+//pin a utilizar del sensor
+int pinSensor = A0;
+
+
 void setup() {
 pinMode(13,OUTPUT);
 pinMode(12,OUTPUT);
@@ -17,7 +22,9 @@ pinMode(3,OUTPUT);
 pinMode(7,OUTPUT);
 pinMode(4,OUTPUT);
 pinMode(2,OUTPUT);
+
 Serial.begin(9600);
+Serial1.begin(9600);
 }
 void loop() {
   
@@ -55,9 +62,39 @@ delay(1000);
 izq(rapido);
 delay(1000);*/
  }
-
 test="";
+int cm = 0.5 * Distancia(pinSensor,pinSensor) * 0.0344 + 1;
+escuchar(cm);
+delay(800);
+
 }
+//metodo por el cual se manejara lo que lea el sensor 
+long Distancia (int Trigger, int Echo){
+  pinMode(Trigger,OUTPUT);
+  digitalWrite(Trigger,LOW);
+  delayMicroseconds(2);
+  digitalWrite(Trigger,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(Trigger,LOW);
+  pinMode(Echo,INPUT);
+
+  return pulseIn(Echo,HIGH);
+  }
+
+//Metodo el cual ejecutara lo que le indiquemos al sensor, despues de leer la distancia
+int escuchar(int numero){
+  if(numero <= 20){
+    
+    parar();
+    Serial1.println(numero);
+    
+    }else{
+    Serial1.println("aun no");
+      }
+    
+    }
+///////////////
+ 
 int adelante(int n){
   
 analogWrite(11, n);
